@@ -164,10 +164,9 @@ if __name__ == '__main__':
 
 ## Train Data & Preprocessing
 
-* Input : 1,000,000건의 전자제품 상품 판매 페이지의 타이틀과 옵션 텍스트
-  
-    > *띄어쓰기/특수기호 등 text-cleansing은 따로 진행하지 하지 않고 raw text 그대로 사용. <br>
-        <em>Input Format</em> :  ``` [옵션 텍스트] + '\t' + [타이틀 텍스트] ``` ( prepare_testset() 함수 참조. ) <br>
+* Input : 1,000,000건의 전자제품 상품 판매 페이지의 타이틀과 옵션 텍스트 <br>
+  *띄어쓰기/특수기호 등 text-cleansing은 따로 진행하지 하지 않고 raw text 그대로 사용. <br>
+    > <em>Input Format</em> :  ``` [옵션 텍스트] + '\t' + [타이틀 텍스트] ``` ( prepare_testset() 함수 참조. ) <br>
          E.g.
         >> Title text : [티몬] LG 오브제컬렉션 공기청정기 AS354NS4A+무빙휠 무료배송 신세계 <br>
             Option text : AS354NS4AM <br>
