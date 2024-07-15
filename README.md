@@ -25,17 +25,6 @@
 
 <br>
 
-## Performance
-
-* 총 47,293건의 테스트 데이터셋으로 테스트한 결과.
-* 정답과 다르게 분류된 건 중 11개 카테고리 외의 상품은 어느 카테고리로 분류하든 True Negative로 인정.
-* 정답과 다르게 분류된 건 중 추가 토큰으로 등록한 모델명 외의 상품은 마찬가지로 어느 카테고리로 분류하든 True Negative로 인정.
-
-<br>
-
-        Accuracy : 96.64% (45,703 / 47,293) | Precision : 1.0 | Recall : 0.99 | F1 Score : 0.99
-
-<br>
 
 ## How To Use
 
@@ -239,6 +228,20 @@ if __name__ == '__main__':
     *Total extra tokens(unique() 기준) : **925 brands & 27,104 items** 
 
 <br>
+
+
+## Performance
+
+* 총 47,293건의 테스트 데이터셋으로 테스트한 결과.
+* 정답과 다르게 분류된 건 중 11개 카테고리 외의 상품은 어느 카테고리로 분류하든 True Negative로 인정.
+* 정답과 다르게 분류된 건 중 추가 토큰으로 등록한 모델명 외의 상품은 마찬가지로 어느 카테고리로 분류하든 True Negative로 인정.
+
+<br>
+
+        Accuracy : 96.64% (45,703 / 47,293) | Precision : 1.0 | Recall : 0.99 | F1 Score : 0.99
+
+<br>
+
 
 ## Citation
 
