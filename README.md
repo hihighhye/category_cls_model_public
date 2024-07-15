@@ -25,7 +25,25 @@
 
 <br>
 
+## Performance
+
+* 총 47,293건의 테스트 데이터셋으로 테스트한 결과.
+* 정답과 다르게 분류된 건 중 11개 카테고리 외의 상품은 어느 카테고리로 분류하든 True Negative로 인정.
+* 정답과 다르게 분류된 건 중 추가 토큰으로 등록한 모델명 외의 상품은 마찬가지로 어느 카테고리로 분류하든 True Negative로 인정.
+
+<br>
+
+        Accuracy : 96.64% (45,703 / 47,293) | Precision : 1.0 | Recall : 0.99 | F1 Score : 0.99
+
+<br>
+
 ## How To Use
+
+### Requirements
+* torch==1.12.1+cu116
+* transformers==4.31.0
+
+<br>
 
 ```
 import sys
@@ -78,7 +96,7 @@ def prepare_testset(df):
             text = df.loc[i, 'option_text']
         text += '\t' + df.loc[i, 'title']
 
-        label = df.loc[i, 'search_keyword']
+        label = df.loc[i, 'category']
 
         texts += [text]
         labels += [label]
@@ -163,9 +181,9 @@ if __name__ == '__main__':
 
 
 ## Train Data & Preprocessing
-
+ 
 * Input : 1,000,000건의 전자제품 상품 판매 페이지의 타이틀과 옵션 텍스트 <br>
-  *띄어쓰기/특수기호 등 text-cleansing은 따로 진행하지 하지 않고 raw text 그대로 사용. <br>
+  *띄어쓰기/특수기호 등에 대한 text-cleansing은 따로 진행하지 하지 않고 raw text 그대로 사용. <br>
     > <em>Input Format</em> :  ``` [옵션 텍스트] + '\t' + [타이틀 텍스트] ``` ( prepare_testset() 함수 참조. ) <br>
          E.g.
         >> Title text : [티몬] LG 오브제컬렉션 공기청정기 AS354NS4A+무빙휠 무료배송 신세계 <br>
@@ -200,9 +218,10 @@ if __name__ == '__main__':
  <br>
 
 ## Used Tokenizer
+
 * `BertWordPieceTokenizer` from the pretrained model.
 * 카테고리를 표현하는 단어(e.g. 냉장고 - 와인냉장고, 김치냉장고 등) 및 국내에서 판매되는 전자제품의 주요 브랜드명, 주요 모델명을 토큰으로 추가 등록. <br><br>
-  `*카테고리별 브랜드명 및 모델명 추가 토큰 수:`
+*  `카테고리별 브랜드명 및 모델명 추가 토큰 수`
     | Category | 브랜드명 토큰 | 모델명 토큰 |
     |----------|-------------:|-----------:|
     | 냉장고 | 117 | 6,586 |
