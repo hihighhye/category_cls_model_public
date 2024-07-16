@@ -238,7 +238,8 @@ if __name__ == '__main__':
 
 <br>
 
-        Accuracy : 96.64% (45,703 / 47,293) | Precision : 1.0 | Recall : 0.99 | F1 Score : 0.99
+        Accuracy : 96.64% (45,703 / 47,293) | Precision : 1.0 | Recall : 0.99
+        F1 Score : 0.97 (weighted) / 0.87 (macro)
 
 <br>
 
